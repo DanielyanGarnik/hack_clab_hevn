@@ -385,6 +385,7 @@ func _create_hud() -> void:
     top_bar.mouse_filter=Control.MOUSE_FILTER_IGNORE
     hud.add_child(top_bar)
     hud_portrait=UI.texture(hud,"res://assets/characters/"+hero_id+"_emotion_neutral.png",Vector2(13,6),Vector2(65,70))
+    hud_portrait.hide()
     chapter_text=UI.label(hud,"",Vector2(90,7),Vector2(603,27),18,UI.GOLD)
     chapter_text.autowrap_mode=TextServer.AUTOWRAP_OFF
     chapter_text.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
