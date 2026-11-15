@@ -1,0 +1,95 @@
+extends RefCounted
+## Localized text, never assembled from scene node names.
+const STRINGS: Dictionary = {
+    "hy": {
+        "title": "ՎԵՐՋԻՆ ՐՈՊԵՆ", "scene":"ԴՐՈՒԱԳ", "gate_rewind":"ԱՐԳԵԼՔ · Հետ գնա մինչեւ ճեղքի յայտնուելը [R]", "gate_opened":"Ժամանակը վերադարձաւ · Անցումը բաց է", "effect_label":"ՀԵՏԵՒԱՆՔ", "trust_up":"Վստահութիւն", "trust_down":"Վստահութիւն", "clue_up":"Նոր տեղեկութիւն", "clue_down":"Տեղեկութիւն", "choice_changes":"Պատմութիւնը փոխուեց", "code_found":"Գտած տեղեկութիւնը՝ 03:17", "subtitle": "Երեք պատմություն։ Մեկ կանգնած գիշեր։",
+        "start": "ՍԿՍԵԼ", "continue": "ՇԱՐՈՒՆԱԿԵԼ", "select": "ԸՆՏՐԵԼ ՀԵՐՈՍԻՆ",
+        "settings": "ԿԱՐԳԱՎՈՐՈՒՄՆԵՐ", "about": "ԽԱՂԻ ՄԱՍԻՆ", "back": "ՀԵՏ", "exit": "ԵԼՔ",
+        "play": "ԽԱՂԱԼ", "resume": "ՇԱՐՈՒՆԱԿԵԼ", "finale": "ԸՆԴՀԱՆՈՒՐ ԳԼՈՒԽ",
+        "lock": "Ավարտիր բոլոր երեք պատմությունները", "complete": "ԱՎԱՐՏՎԱԾ Է",
+        "chapter": "ԳԼՈՒԽ", "goal": "ՆՊԱՏԱԿ", "of": "/", "press": "E —",
+        "next": "ՀԱՋՈՐԴԸ [E]", "close": "ՓԱԿԵԼ [E]", "open": "ԴԻՏԵԼ", "choice": "ԸՆՏՐԻՐ ՊԱՏԱՍԽԱՆԸ",
+        "past": "ԱՆՑՅԱԼ", "present": "ՆԵՐԿԱ", "shift": "[Q] Փոխիր ժամանակը", "switch": "[TAB] Փոխիր հերոսին",
+        "rewind": "[R] Հետ տուր ժամանակը", "restart": "ՎԵՐՍԿՍԵԼ", "menu": "ՄԵՆՅՈՒ",
+        "record": "ՁԱՅՆԱԳՐՈՒԹՅՈՒՆ", "memory": "ՀԻՇՈՂՈՒԹՅՈՒՆ", "document": "ԱՐԽԻՎ",
+        "letter": "ՆԱՄԱԿ", "handwritten_note": "ԳՐԱՌՈՒՄ · 03:17",
+        "journal": "ԳՐԱՌՈՒՄՆԵՐ [J]", "no_clues": "Դեռ ոչինչ չես գտել։",
+        "code_title": "ԵՌԱՆԻՇ ԿՈԴ", "code_hint": "Հիշիր՝ ինչ են ցույց տալիս ժամացույցները։",
+        "trap_tip": "Զգույշ՝ ճանապարհը փոխվում է։ Ցատկիր կամ հետ տուր ժամանակը։",
+        "trap_tip_start": "Զգույշ՝ ճանապարհը փոխվում է։ Ցատկիր։",
+        "wrong": "Սխալ կոդ։ Փորձիր նորից։", "cleared": "Մեխանիզմն աշխատեց։",
+        "language": "ԼԵԶՈՒ", "volume": "ՁԱՅՆ", "touch": "Հպումով կառավարում",
+        "tips": "A/D՝ քայլել · Shift՝ վազել · Space՝ ցատկել · E՝ ուսումնասիրել · R՝ հետ տալ · Q՝ ժամանակ · J՝ գրառումներ · 1/2/3՝ պատասխան",
+        "about_text": "Յուրին, Գառնիկն ու Սուրենը նույն գիշերը տեսնում են տարբեր կերպ։\nՈւսումնասիրիր 4 գլուխ յուրաքանչյուրի հետ։ Միայն հետո կբացվի ընդհանուր ավարտը։\n\nՍրանք խաղային կերպարներ են՝ ստեղծված ձեր լուսանկարների հիման վրա։",
+        "settings_hint": "Լեզուն ու ձայնը պահպանվում են։ Ամեն նոր գործարկման ժամանակ պատմությունը սկսվում է սկզբից։",
+        "ending": "ՊԱՏՄՈՒԹՅՈՒՆՆ ԱՎԱՐՏՎԵՑ", "ending_sub": "Բայց ուրիշներն այդ գիշերը այլ կերպ հիշեցին։",
+        "ending_next": "ԸՆՏՐԵԼ ՄՅՈՒՍ ՊԱՏՄՈՒԹՅՈՒՆԸ", "all_done": "Երեք պատմությունն էլ ավարտված են։",
+        "play_finale": "ԲԱՑԵԼ ԸՆԴՀԱՆՈՒՐ ԳԼՈՒԽԸ", "finale_a": "03:18 — ԱՌԱՋԻՆ ՎԱՂԸ",
+        "finale_b": "03:17 — ԿՐԿԻՆ ԵՐԵԿ", "reset": "ՆՈՐԻՑ ԽԱՂԱԼ", "pause": "ԴԱԴԱՐ",
+        "confirm": "ՀԱՍԿԱՑԱ", "empty": "Դատարկ է։", "loading": "ՊԱՏՄՈՒԹՅՈՒՆԸ ԲԱՑՎՈՒՄ Է",
+    },
+    "ru": {
+        "title": "ПОСЛЕДНЯЯ МИНУТА", "scene":"СЦЕНА", "gate_rewind":"РАЗЛОМ ВРЕМЕНИ · Вернись до его появления: удерживай [R]", "gate_opened":"Время изменено: проход открыт", "effect_label":"ПОСЛЕДСТВИЕ", "trust_up":"Доверие", "trust_down":"Доверие", "clue_up":"Улика", "clue_down":"Улика", "choice_changes":"История изменилась", "code_found":"Собранная улика: код 03:17", "subtitle": "Три истории. Одна остановившаяся ночь.",
+        "start": "НАЧАТЬ", "continue": "ПРОДОЛЖИТЬ", "select": "ВЫБЕРИ ГЕРОЯ",
+        "settings": "НАСТРОЙКИ", "about": "ОБ ИГРЕ", "back": "НАЗАД", "exit": "ВЫХОД",
+        "play": "ИГРАТЬ", "resume": "ПРОДОЛЖИТЬ", "finale": "ОБЩАЯ ГЛАВА",
+        "lock": "Заверши все три истории", "complete": "ПРОЙДЕНО",
+        "chapter": "ГЛАВА", "goal": "ЦЕЛЬ", "of": "/", "press": "E —",
+        "next": "ДАЛЕЕ [E]", "close": "ЗАКРЫТЬ [E]", "open": "РАССМОТРЕТЬ", "choice": "ВЫБЕРИ ОТВЕТ",
+        "past": "ПРОШЛОЕ", "present": "НАСТОЯЩЕЕ", "shift": "[Q] Сменить время", "switch": "[TAB] Сменить героя",
+        "rewind": "[R] Отмотать время", "restart": "ЗАНОВО", "menu": "МЕНЮ",
+        "record": "ЗАПИСЬ", "memory": "ВОСПОМИНАНИЕ", "document": "АРХИВ",
+        "letter": "ПИСЬМО", "handwritten_note": "ЗАПИСКА · 03:17",
+        "journal": "ЗАМЕТКИ [J]", "no_clues": "Вы ещё ничего не нашли.",
+        "code_title": "ТРЁХЗНАЧНЫЙ КОД", "code_hint": "Вспомни показания часов.",
+        "trap_tip": "Ловушка! Прыгай или отмотай время назад.",
+        "trap_tip_start": "Ловушка! Перепрыгни опасный участок.",
+        "wrong": "Неверный код. Попробуй ещё раз.", "cleared": "Механизм запущен.",
+        "language": "ЯЗЫК", "volume": "ГРОМКОСТЬ", "touch": "Сенсорные кнопки",
+        "tips": "A/D — идти · Shift — бежать · Space — прыгать · E — изучать · R — назад · Q — время · J — заметки · 1/2/3 — ответ",
+        "about_text": "Юрий, Гарник и Сурен по-разному помнят одну ночь.\nПройди четыре главы за каждого героя. Только тогда откроется общая развязка.\n\nИгровые персонажи созданы по вашим фотографиям в рисованном стиле.",
+        "settings_hint": "Язык и звук сохраняются. При новом запуске сюжет начинается с первой главы.",
+        "ending": "ИСТОРИЯ ЗАВЕРШЕНА", "ending_sub": "Но другие помнят эту ночь иначе.",
+        "ending_next": "ВЫБРАТЬ ДРУГУЮ ИСТОРИЮ", "all_done": "Все три истории завершены.",
+        "play_finale": "ОТКРЫТЬ ОБЩУЮ ГЛАВУ", "finale_a": "03:18 — ПЕРВОЕ ЗАВТРА",
+        "finale_b": "03:17 — ЕЩЁ ОДНО ВЧЕРА", "reset": "ПРОЙТИ СНОВА", "pause": "ПАУЗА",
+        "confirm": "ПОНЯТНО", "empty": "Пусто.", "loading": "ЗАГРУЗКА ИСТОРИИ",
+    },
+    "en": {
+        "title": "THE LAST MINUTE", "scene":"SCENE", "gate_rewind":"TIME FRACTURE · Rewind to before it appeared: hold [R]", "gate_opened":"Time restored: the passage is open", "effect_label":"CONSEQUENCE", "trust_up":"Trust", "trust_down":"Trust", "clue_up":"Clue", "clue_down":"Clue", "choice_changes":"The story has changed", "code_found":"Recovered clue: the code is 03:17", "subtitle": "Three stories. One night frozen in time.",
+        "start": "START", "continue": "CONTINUE", "select": "CHOOSE YOUR STORY",
+        "settings": "SETTINGS", "about": "ABOUT", "back": "BACK", "exit": "EXIT",
+        "play": "PLAY", "resume": "CONTINUE", "finale": "SHARED CHAPTER",
+        "lock": "Complete all three stories", "complete": "COMPLETE",
+        "chapter": "CHAPTER", "goal": "OBJECTIVE", "of": "/", "press": "E —",
+        "next": "NEXT [E]", "close": "CLOSE [E]", "open": "EXAMINE", "choice": "CHOOSE A RESPONSE",
+        "past": "PAST", "present": "PRESENT", "shift": "[Q] Shift time", "switch": "[TAB] Switch hero",
+        "rewind": "[R] Rewind time", "restart": "RESTART", "menu": "MENU",
+        "record": "RECORDING", "memory": "MEMORY", "document": "ARCHIVE",
+        "letter": "LETTER", "handwritten_note": "HANDWRITTEN NOTE · 03:17",
+        "journal": "NOTES [J]", "no_clues": "No clues found yet.",
+        "code_title": "THREE-DIGIT CODE", "code_hint": "Remember what the clock showed.",
+        "trap_tip": "A trap! Jump or rewind time.",
+        "trap_tip_start": "A trap! Jump over the hazard.",
+        "wrong": "Incorrect code. Try again.", "cleared": "The mechanism is running.",
+        "language": "LANGUAGE", "volume": "VOLUME", "touch": "Touch controls",
+        "tips": "A/D move · Shift run · Space jump · E inspect · R rewind · Q time · J notes · 1/2/3 choose",
+        "about_text": "Yuri, Garnik and Suren remember the same night differently.\nPlay four chapters as each hero to unlock the shared finale.\n\nCharacters were drawn in a cartoon style based on your reference photos.",
+        "settings_hint": "Language and volume are saved. Each new launch starts the story from chapter one.",
+        "ending": "STORY COMPLETE", "ending_sub": "But the others remember that night differently.",
+        "ending_next": "CHOOSE ANOTHER STORY", "all_done": "All three stories are complete.",
+        "play_finale": "UNLOCK SHARED FINALE", "finale_a": "03:18 — THE FIRST TOMORROW",
+        "finale_b": "03:17 — YESTERDAY AGAIN", "reset": "REPLAY", "pause": "PAUSE",
+        "confirm": "GOT IT", "empty": "Empty.", "loading": "OPENING STORY",
+    }
+}
+
+static func ui(key: String, lang: String) -> String:
+    var pack: Dictionary = STRINGS.get(lang, STRINGS["hy"])
+    return str(pack.get(key, key))
+
+static func pick(value: Variant, lang: String) -> String:
+    if typeof(value) == TYPE_DICTIONARY:
+        var translated: Dictionary = value as Dictionary
+        return str(translated.get(lang, translated.get("hy", translated.get("ru", ""))))
+    return str(value)
